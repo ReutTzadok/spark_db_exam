@@ -5,12 +5,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Users implements Serializable {
+@Table(name = "users")
+public class User implements Serializable {
     @Id
     private Integer id;
     private String name;
@@ -60,8 +62,8 @@ public class Users implements Serializable {
 
     public boolean equals(final Object o) {
         if (o == this) return true;
-        if (!(o instanceof Users)) return false;
-        final Users other = (Users) o;
+        if (!(o instanceof User)) return false;
+        final User other = (User) o;
         if (!other.canEqual((Object) this)) return false;
         final Object this$id = this.getId();
         final Object other$id = other.getId();
@@ -83,7 +85,7 @@ public class Users implements Serializable {
     }
 
     protected boolean canEqual(final Object other) {
-        return other instanceof Users;
+        return other instanceof User;
     }
 
     public int hashCode() {

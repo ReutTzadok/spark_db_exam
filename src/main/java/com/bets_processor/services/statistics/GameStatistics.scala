@@ -3,15 +3,12 @@ package com.bets_processor.services.statistics
 import com.bets_processor.model.BetScala._
 import com.bets_processor.repositories.BetsRepo
 import com.bets_processor.services.filters.Filters.FilterBets
+
 import org.apache.spark.sql.functions.col
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 import java.sql.Timestamp
-
-
-// TODO: fix the return value
-
 
 
 @Component
@@ -36,14 +33,7 @@ class GameStatistics {
     val win = colStatistics(bets, WIN)
     val profit = colStatistics(bets.withProfit, PROFIT)
 
-   println(s"""
-       $head
-       $win
-       $bet
-       $profit
-       """)
-
-    win + bet + profit
+   s"${head.toUpperCase}</br>$win</br>$bet</br>$profit"
   }
 
 }

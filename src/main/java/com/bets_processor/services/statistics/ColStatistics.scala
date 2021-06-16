@@ -1,6 +1,7 @@
 package com.bets_processor.services.statistics
 
 import com.bets_processor.services.statistics.columnsData.{ColAverage, ColMaximum, ColMinimum}
+
 import org.apache.spark.sql.DataFrame
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -22,10 +23,10 @@ class ColStatistics {
     val maxCol: Double = colMaximum(orderedBets)
     val aveCol: Double = colAverage(orderedBets, col)
 
-    s"""Column $col:
-      |min value in column $col is $minCol
-      |max value in column $col is $maxCol
-      |average of column $col is $aveCol
+    s"""Column $col:</br>
+      |min value in column $col is $minCol</br>
+      |max value in column $col is $maxCol</br>
+      |average of column $col is $aveCol</br>
       |""".stripMargin
   }
 

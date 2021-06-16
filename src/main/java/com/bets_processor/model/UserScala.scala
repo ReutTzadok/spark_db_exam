@@ -16,11 +16,11 @@ object UserScala {
 
 
 object UserAdapter {
-  implicit def toScala(user: Users): UserScala = {
+  implicit def toScala(user: User): UserScala = {
     UserScala(user.getId, user.getName, user.getLastName, user.getCountryOfOrigin, user.getEmail)
   }
 
-  implicit def toScala(users: java.util.List[Users]): List[UserScala] = {
-    users.asScala.toList.map(user => toScala(user));
+  implicit def toScala(users: java.util.List[User]): List[UserScala] = {
+    users.asScala.toList.map(user => toScala(user))
   }
 }

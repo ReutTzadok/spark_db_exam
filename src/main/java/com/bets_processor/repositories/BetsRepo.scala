@@ -26,7 +26,6 @@ class BetsRepo {
   def getBets: DataFrame = {
     val schema: StructType = Encoders.product[BetScala].schema
     import sparkSession.implicits._
-
     sparkSession.read.option("multiline","true")
       .schema(schema)
       .json("data/generated_event.json") //todo use application properties
